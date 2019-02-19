@@ -1,15 +1,42 @@
 import React from "react";
+import {Button} from "react-bootstrap";
 
-export const UserRow = (props) => {
-    const {id, name, email, mode} = props;
-const isEditMode = mode=== 'edit';
+export class UserRow extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isEditMode: false
+        };
+    }
 
-    return (
-        <tr>
-            <td>{id}</td>
-            <td>{isEditMode ? <input type="text" value={name}/>:name}</td>
-            <td>{email}</td>
+    toggleMode = () => {
+        this.setState({
+            isEditMode: !this.state.isEditMode
+        });
+    };
 
-        </tr>
-    )
-};
+    render() {
+        const {id, name, email, mode} = this.props;
+        const {isEditMode} = this.state;
+
+        return (
+            <tr>
+                <td>{id}</td>
+                <td>{isEditMode ? <input type="text" value={name}/> : name}</td>
+                <td>{email}</td>
+
+                <td>
+                    {isEditMode ? (
+                        <Button onClick={this.toggleMode}>Save</Button>
+                    ) : (
+                        <Button onClick={this.toggleMode}>Update</Button>
+                    )}
+                </td>
+
+            </tr>
+        );
+    }
+}
+
+
+
