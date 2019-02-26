@@ -2,10 +2,18 @@
     display:flex;
 }
 
-.table-header-cell__arow{
+.table-header-cell__arrow{
     color:black;
 }
 
-.table-header-cell__arow_active{
-    color:gray;
+.table-header-cell__arrow_active{
+    color:green;
+}
+.arrow_button{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+}
+.i_button{
+    line-height: 4.3px;
 }

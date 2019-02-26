@@ -16,7 +16,7 @@ export class UserRow extends React.Component {
     };
 
     render() {
-        const {id, name, email, mode} = this.props;
+        const {id, name, email} = this.props;
         const {isEditMode} = this.state;
 
         return (
