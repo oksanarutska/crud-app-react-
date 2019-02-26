@@ -1,5 +1,7 @@
 import React from "react";
 import {Button} from "react-bootstrap";
+import  "./UserRow.css"
+
 
 export class UserRow extends React.Component {
     constructor(props) {
@@ -31,7 +33,12 @@ export class UserRow extends React.Component {
                     ) : (
                         <Button onClick={this.toggleMode}>Update</Button>
                     )}
+                    <Button className="button_delete">Delete</Button>
+
                 </td>
+
+
+
 
             </tr>
         );
