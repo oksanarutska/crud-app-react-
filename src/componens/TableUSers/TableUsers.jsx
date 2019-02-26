@@ -26,7 +26,7 @@ export class TableUsers extends React.Component {
                     <tbody>
                     {
                         this.props.users.map((user, index) => {
-                            return <UserRow{...user} mode={index % 2 ? "edit" : "view"} key={user.id}/>
+                            return <UserRow{...user} mode={index % 2 ? "edit" : "view"} key={user.id} {...this.props}/>
                         })
                     }
                     </tbody>

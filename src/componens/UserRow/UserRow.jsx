@@ -18,13 +18,13 @@ export class UserRow extends React.Component {
     };
 
     render() {
-        const {id, name, email} = this.props;
+        const {id, name, email, onDelete} = this.props;
         const {isEditMode} = this.state;
 
         return (
             <tr>
                 <td>{id}</td>
-                <td>{isEditMode ? <input type="text" value={name}/> : name}</td>
+                <td>{isEditMode ? <input type="text" value={name} /> : name}</td>
                 <td>{email}</td>
 
                 <td>
@@ -33,7 +33,7 @@ export class UserRow extends React.Component {
                     ) : (
                         <Button onClick={this.toggleMode}>Update</Button>
                     )}
-                    <Button className="button_delete">Delete</Button>
+                    <Button className="button_delete" onClick={e => onDelete(id)}>Delete</Button>
 
                 </td>
 

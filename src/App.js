@@ -40,7 +40,6 @@ class App extends Component {
         })
     };
 
-
     onPageChange = (page) => {
         this.setState({page}, () => {
             this.updateUsers();
@@ -59,6 +58,12 @@ class App extends Component {
         });
     };
 
+    onDelete(userId) {
+        this.backend.delete(userId)
+            .then(_ => {
+                this.updateUsers();
+            });
+    }
 
     render() {
 
@@ -68,7 +73,7 @@ class App extends Component {
                 <Header onSearchChange={this.onSearchChange} onSelectChange={this.onSelectChange}
                         limit={this.state.limit}/>
 
-                <TableUsers users={this.state.users}/>
+                <TableUsers users={this.state.users} onDelete={this.onDelete.bind(this)}/>
 
                 <ButtonUser onPageChange={this.onPageChange}
                             currentPage={this.state.page}/>
